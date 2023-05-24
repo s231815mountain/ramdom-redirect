@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>待機画面</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('playerCount', (count) => {
+      document.getElementById('playerCount').textContent = count;
+    });
+
+    socket.on('redirect', (url) => {
+      window.location.href = url;
+    });
+  </script>
+</head>
+<body>
+  <h1>待機画面</h1>
+  <p><span id="playerCount">0</span>人が待機しています。</p>
+</body>
+</html>
